@@ -1,0 +1,13 @@
+<launch>
+    <node pkg="joy" type="joy_node" name="joy_node" output="screen"/>
+
+    <group ns="cf1">
+        <node pkg="crazyflie_server" type="crazyflie_server.py" name="crazyflie_server_node" output="screen">
+            <rosparam file="$(find crazyflie_controller)/src/config/crazyflie_control.yaml" command="load" />
+        </node>
+
+        <node pkg="crazyflie_controller" type="crazyflie_H_inf.py" name="crazyflie_LQG_node" output="screen">
+            <rosparam file="$(find crazyflie_controller)/src/config/crazyflie_control.yaml" command="load" />
+        </node>
+    </group>
+</launch>

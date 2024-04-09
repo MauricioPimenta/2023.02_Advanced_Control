@@ -1,0 +1,8 @@
+<launch>
+    <node pkg="joy" type="joy_node" name="joy_node" output="screen"/>
+    <group ns="cf1">
+        <node pkg="crazyflie_server" type="crazyflie_server.py" name="crazyflie_node" output="screen">
+            <param name="uri" value="radio://0/10/2M/E7E7E7E704"/>
+        </node>
+    </group>
+</launch>
